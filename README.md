@@ -1,6 +1,6 @@
 # HatCHRy - Interviev project
 
-##Representation of the map
+## Representation of the map
 At this stage, I had to decide how I want to represent the map.
 A map can be handly represented as an undirected graph, where territories are represented as vertices, and an edge between two territories determines if they have a common border.
 
