@@ -6,4 +6,4 @@ A map can be handly represented as an undirected graph, where territories are re
 
 An undirected graph can be described as an adjacency matrix or adjacency list.
 
-From those two in this context, an adjacency list would suit better. The adjacency matrix occupies space for every potential connection between two vertices and with the map. It would end up with many empty elements for territories that are not connected to each other.
+From those two in this context, an adjacency list would suit better. The adjacency matrix occupies space for every potential connection between two vertices, so with the map it would end up with many empty elements for territories that are not connected.
