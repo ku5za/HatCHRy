@@ -18,12 +18,9 @@ namespace UseCases
         {
             string[] territoriesCodes = GetTerritoriesCodes(territoriesDictionary);
 
-            List<List<string>> bordersList = new List<List<string>>();
-            for(int vertex = 0; vertex < this.adjacencyList.Length; vertex++)
-            {
-                bordersList.Add(GetVertexNeighboursTerritoriesCodes(this.adjacencyList[vertex], territoriesCodes));
-            }
-            return bordersList;
+            return adjacencyList.Select(
+                vertexNeighboursList => GetVertexNeighboursTerritoriesCodes(
+                    vertexNeighboursList, territoriesCodes));
         }
 
         public string[] GetTerritoriesCodes(Dictionary<string, int> territoriesDictionary)
