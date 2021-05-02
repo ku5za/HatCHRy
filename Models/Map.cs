@@ -17,15 +17,25 @@ namespace Models
             graphRepresentation = new UndirectedGraph(territories.Length);
         }
 
-        public List<int>[] GetAdjacencyList()
+        public List<int>[] GetAdjacencyList() => graphRepresentation.GetAdjacencyList();
+        public Dictionary<string, int> GetTerritoriesDictionary() => territoriesDictionary;
+
+        public void AddBorder(string firstTerritory, string secondTerritory)
         {
-            return graphRepresentation.GetAdjacencyList();
+            int firstTerritoryIndex = territoriesDictionary[firstTerritory];
+            int secondTerritoryIndex = territoriesDictionary[secondTerritory];
+            List<int> firstTerritoryNeighbours =
+                graphRepresentation.GetAdjacencyList()[firstTerritoryIndex];
+
+            bool borderAlreadyExists = firstTerritoryNeighbours.Contains(secondTerritoryIndex);
+            if (borderAlreadyExists) 
+                return;
+            graphRepresentation.AddEdge(firstTerritoryIndex,secondTerritoryIndex);
         }
 
-        public void AddBorder(string from, string to)
+        public IEnumerable<IEnumerable<string>> GetBordersList(IAdjacencyListToBordersListParser parser)
         {
-            graphRepresentation.AddEdge(territoriesDictionary[from],
-                                        territoriesDictionary[to]);
+            return parser.FromTerritoriesDictionary(territoriesDictionary);
         }
     }
 }
