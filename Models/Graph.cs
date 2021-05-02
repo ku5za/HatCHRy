@@ -7,7 +7,7 @@ namespace Models
 {
     public abstract class Graph
     {
-        protected List<int>[] adjacencyList;
+        protected readonly List<int>[] adjacencyList;
         public Graph(int numberOfVertices)
         {
             adjacencyList = new List<int>[numberOfVertices];
