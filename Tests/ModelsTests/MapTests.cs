@@ -10,7 +10,7 @@ namespace Tests.ModelsTests
     public class MapTests
     {
         [Fact]
-        public void AfterAddingTerritoriesAndCommonBordersReturnsProperGraphAdjacencyList()
+        public void GetAdjacencyList_AddedBordersByCountryCodes_ReturnsProperAdjacencyList()
         {
             string[] territoryCodes = new string[]
             {
@@ -33,7 +33,7 @@ namespace Tests.ModelsTests
         }
 
         [Fact]
-        public void AfterAddingTerritoriesAndCommonBordersReturnsProperBordersList()
+        public void GetBordersList_AdjacencyListToBordersListParser_ReturnsProperAdjacencyListWithCountryCodes()
         {
             string[] territoryCodes = new string[]
             {
@@ -61,7 +61,7 @@ namespace Tests.ModelsTests
         }
 
         [Fact]
-        public void IgnoresAttemptToAddBorderIfItAlreadyExists()
+        public void AddBorder_IgnoresAttemptToAddingAlreadyExistingBorder()
         {
             string[] territoryCodes = new string[] { "CAN", "USA" };
             Map map = new Map(territoryCodes);
