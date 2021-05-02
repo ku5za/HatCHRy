@@ -1,6 +1,7 @@
 ﻿using Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace UseCases
@@ -34,13 +35,9 @@ namespace UseCases
 
         public List<string> GetVertexNeighboursTerritoriesCodes(List<int> vertexNeighboursList, string[] territoriesCodes)
         {
-            List<string> vertexNeighboursTerritoriesCodes = new List<string>();
-            foreach(var neighbourIndex in vertexNeighboursList)
-            {
-                string neighbourCode = territoriesCodes[neighbourIndex];
-                vertexNeighboursTerritoriesCodes.Add(neighbourCode);
-            }
-            return vertexNeighboursTerritoriesCodes;
+            return vertexNeighboursList.Select(
+                    neighbourNumber => territoriesCodes[neighbourNumber]
+                ).ToList();
         }
     }
 }
