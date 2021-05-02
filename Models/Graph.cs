@@ -1,14 +1,25 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Models
 {
-    public class Graph<T>
+    public abstract class Graph
     {
-        protected LinkedList<T> adjacencyList;
-        public Graph()
+        protected List<int>[] adjacencyList;
+        public Graph(int numberOfVertices)
         {
-            adjacencyList = new LinkedList<T>();
+            adjacencyList = new List<int>[numberOfVertices];
+            for (int i = 0; i < adjacencyList.Length; i++)
+                adjacencyList[i] = new List<int>();
+        }
+
+        public abstract void AddEdge(int from, int to);
+
+        public List<int>[] GetAdjacencyList()
+        {
+            return adjacencyList;
         }
     }
 }
