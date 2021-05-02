@@ -16,18 +16,11 @@ namespace UseCases
 
         public IEnumerable<IEnumerable<string>> FromTerritoriesDictionary(Dictionary<string, int> territoriesDictionary)
         {
-            string[] territoriesCodes = GetTerritoriesCodes(territoriesDictionary);
+            string[] territoriesCodes = territoriesDictionary.Keys.ToArray();
 
             return adjacencyList.Select(
                 vertexNeighboursList => GetVertexNeighboursTerritoriesCodes(
                     vertexNeighboursList, territoriesCodes));
-        }
-
-        public string[] GetTerritoriesCodes(Dictionary<string, int> territoriesDictionary)
-        {
-            string[] territoriesCodes = new string[territoriesDictionary.Keys.Count];
-            territoriesDictionary.Keys.CopyTo(territoriesCodes, 0);
-            return territoriesCodes;
         }
 
         public List<string> GetVertexNeighboursTerritoriesCodes(List<int> vertexNeighboursList, string[] territoriesCodes)
