@@ -8,7 +8,7 @@ namespace Tests.ModelsTests
     public class UndirectedGraphTests
     {
         [Fact]
-        public void AfterAddingEdgesReturnsProperAdjacencyList()
+        public void GetAdjacencyList_AfterAddingEdges_ReturnsProperAdjacencyList()
         {
             UndirectedGraph graph = new UndirectedGraph(4);
             graph.AddEdge(0, 1);

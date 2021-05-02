@@ -9,7 +9,7 @@ namespace Tests.UseCasesTests
     public class AdjacencyListToBordersListParserTest
     {
         [Fact]
-        public void FromVertexNeighboursListAndTerritoriesCodesReturnsProperTerritoryBordersList()
+        public void GetVertexNeighbourTerritoriesCodes_AdjacencyListAndTerritoriesCodes_ReturnsProperAdjacencyListWithCodesOfVertexNeighbours()
         {
             List<int>[] adjacencyList = new List<int>[] { new List<int> { 1 }, new List<int> { 0, 2 }, new List<int> { 1 } };
             string[] territoriesCodes = new string[] { "CAN", "USA", "MEX" };
@@ -20,7 +20,7 @@ namespace Tests.UseCasesTests
         }
 
         [Fact]
-        public void FromTerritoriesCodesAndAdjacencyListReturnsProperBordersList()
+        public void FromTerritoriesDictionary_AdjacencyListAndTerritoriesDictionary_ReturnsProperBordersList()
         {
             List<int>[] adjacencyList = new List<int>[3]
             {
