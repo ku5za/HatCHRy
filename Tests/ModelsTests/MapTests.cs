@@ -5,7 +5,7 @@ using System.Text;
 using UseCases;
 using Xunit;
 
-namespace Tests.Models
+namespace Tests.ModelsTests
 {
     public class MapTests
     {

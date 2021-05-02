@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace Tests.Models
+namespace Tests.ModelsTests
 {
     public class UndirectedGraphTests
     {

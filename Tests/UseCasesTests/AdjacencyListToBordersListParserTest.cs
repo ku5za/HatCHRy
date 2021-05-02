@@ -4,7 +4,7 @@ using System.Text;
 using UseCases;
 using Xunit;
 
-namespace Tests.UseCases
+namespace Tests.UseCasesTests
 {
     public class AdjacencyListToBordersListParserTest
     {
