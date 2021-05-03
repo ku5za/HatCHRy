@@ -27,7 +27,7 @@ namespace Tests.UseCasesTests
 
         [Theory]
         [InlineData("USA", "HND", new string[] { "USA", "MEX", "GTM", "HND" })]
-        void GetVisitedVerticesList_ToHonduras_FindsShortestPath(string source, string destination, string[] expectedOutput)
+        public void GetVisitedVerticesList_ToHonduras_FindsShortestPath(string source, string destination, string[] expectedOutput)
         {
             MockShortestPathFinderInput mockInput = new MockShortestPathFinderInput();
             BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mockInput);
