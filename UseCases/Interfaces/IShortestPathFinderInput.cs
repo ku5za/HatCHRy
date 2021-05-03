@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UseCases.Interfaces
 {
-    public interface IPathToDestinationFinderInput
+    public interface IShortestPathFinderInput
     {
         public Map GetMap();
     }
