@@ -10,9 +10,9 @@ namespace UseCases
     public abstract class ShortestPathFinder : IShortestPathFinderOutput
     {
         private readonly Map map;
-        public ShortestPathFinder(IShortestPathFinderInput input)
+        public ShortestPathFinder(IMapBuilderOutput mapBuilderOutput)
         {
-            map = input.GetMap();
+            map = mapBuilderOutput.GetMap();
         }
 
         protected abstract ShortestPathFinderAlgorithm GetShortestPathFinderAlgorithmClass(List<int>[] adjacencyList);

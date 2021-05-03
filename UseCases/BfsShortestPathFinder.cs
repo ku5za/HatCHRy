@@ -7,7 +7,7 @@ namespace UseCases
 {
     public class BfsShortestPathFinder : ShortestPathFinder
     {
-        public BfsShortestPathFinder(IShortestPathFinderInput input) : base(input)
+        public BfsShortestPathFinder(IMapBuilderOutput mapBuilderOutput) : base(mapBuilderOutput)
         {
         }
 
