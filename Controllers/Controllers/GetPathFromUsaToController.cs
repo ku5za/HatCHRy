@@ -11,10 +11,10 @@ namespace Controllers.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetPathFromUsaTo : ControllerBase
+    public class GetPathFromUsaToController : ControllerBase
     {
         private readonly IShortestPathFinderOutput pathFinderOutput;
-        public GetPathFromUsaTo(IShortestPathFinderOutput shortestPathFinderOutput)
+        public GetPathFromUsaToController(IShortestPathFinderOutput shortestPathFinderOutput)
         {
             pathFinderOutput = shortestPathFinderOutput;
         }
