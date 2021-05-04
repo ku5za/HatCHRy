@@ -46,8 +46,8 @@ namespace Tests.UseCasesTests
                         new List<string> {"GTM", "HND"},
                         new List<string> {"SLV", "HND"},
                         new List<string> {"HND", "NIC"},
-                        new List<string> {"NIC", "CIR"},
-                        new List<string> {"CIR", "PAN"}
+                        new List<string> {"NIC", "CRI"},
+                        new List<string> {"CRI", "PAN"}
                     },
                     mapBuilderInput.GetBordersList()
                 );
