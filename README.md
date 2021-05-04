@@ -1,4 +1,4 @@
-# HatCHRy Interviev Project
+# HatCHRy Interview Project
 
 ## Usage
 Link to live Web API's endpoint: https://jkuszewskihatchry.azurewebsites.net/  
