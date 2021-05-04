@@ -14,7 +14,7 @@ namespace Tests.UseCasesTests
         [InlineData(1, 6, new int[] { 1, 2, 4, 6})]
         public void GetShortestPathList_MockMapInput_ReturnsProperVisitedVerticesList(int source, int destination, int[] expectedOutput)
         {
-            MockShortestPathFinderInput mockShortestPathFinderInput = new MockShortestPathFinderInput();
+            MockMapBuilderOutput mockShortestPathFinderInput = new MockMapBuilderOutput();
             List<int>[] adjacencyList = mockShortestPathFinderInput.GetMap().GetAdjacencyList();
             BfsShortestPathFinderAlgorithm bfsShortestPath = new BfsShortestPathFinderAlgorithm(adjacencyList);
             int[] bfsShortestPathArray = bfsShortestPath.GetShortestPathList(source, destination).ToArray();

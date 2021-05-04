@@ -6,7 +6,7 @@ using UseCases.Interfaces;
 
 namespace Tests.UseCasesTests.Mocks
 {
-    public class MockShortestPathFinderInput : IShortestPathFinderInput
+    public class MockMapBuilderOutput : IMapBuilderOutput
     {
         public Map GetMap()
         {

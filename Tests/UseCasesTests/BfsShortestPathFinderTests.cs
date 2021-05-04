@@ -19,7 +19,7 @@ namespace Tests.UseCasesTests
         [InlineData("USA", "SLV", new string[] { "USA", "MEX", "GTM", "SLV" })]
         public void GetVisitedVerticesList_ToNearCountries_ReturnsListOfVisitedCountries(string source, string destination, string[] expectedOutput)
         {
-            MockShortestPathFinderInput mockInput = new MockShortestPathFinderInput();
+            MockMapBuilderOutput mockInput = new MockMapBuilderOutput();
             BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mockInput);
             string[] shortestPath = pathFinder.GetVisitedVerticesList(source, destination).ToArray();
             Assert.Equal(expectedOutput, shortestPath);
@@ -29,7 +29,7 @@ namespace Tests.UseCasesTests
         [InlineData("USA", "HND", new string[] { "USA", "MEX", "GTM", "HND" })]
         public void GetVisitedVerticesList_ToHonduras_FindsShortestPath(string source, string destination, string[] expectedOutput)
         {
-            MockShortestPathFinderInput mockInput = new MockShortestPathFinderInput();
+            MockMapBuilderOutput mockInput = new MockMapBuilderOutput();
             BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mockInput);
             string[] shortestPath = pathFinder.GetVisitedVerticesList(source, destination).ToArray();
             Assert.Equal(expectedOutput, shortestPath);
