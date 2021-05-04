@@ -28,14 +28,9 @@ namespace Models
                 graphRepresentation.GetAdjacencyList()[firstTerritoryIndex];
 
             bool borderAlreadyExists = firstTerritoryNeighbours.Contains(secondTerritoryIndex);
-            if (borderAlreadyExists) 
+            if (borderAlreadyExists)
                 return;
-            graphRepresentation.AddEdge(firstTerritoryIndex,secondTerritoryIndex);
-        }
-
-        public IEnumerable<IEnumerable<string>> GetBordersList(IAdjacencyListToBordersListParser parser)
-        {
-            return parser.FromTerritoriesDictionary(territoriesDictionary);
+            graphRepresentation.AddEdge(firstTerritoryIndex, secondTerritoryIndex);
         }
     }
 }

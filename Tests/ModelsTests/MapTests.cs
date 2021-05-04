@@ -33,34 +33,6 @@ namespace Tests.ModelsTests
         }
 
         [Fact]
-        public void GetBordersList_AdjacencyListToBordersListParser_ReturnsProperAdjacencyListWithCountryCodes()
-        {
-            string[] territoryCodes = new string[]
-            {
-                "CAN",
-                "USA",
-                "MEX"
-            };
-            Map map = new Map(territoryCodes);
-            map.AddBorder("CAN", "USA");
-            map.AddBorder("USA", "MEX");
-
-            List<int>[] mapAdjacencyList = map.GetAdjacencyList();
-
-            AdjacencyListToBordersListParser parser = new AdjacencyListToBordersListParser(mapAdjacencyList);
-
-            Assert.Equal(
-                    new List<List<string>>()
-                    {
-                        new List<string> {"USA"},
-                        new List<string> {"CAN", "MEX"},
-                        new List<string> {"USA"}
-                    },
-                    map.GetBordersList(parser)
-                );
-        }
-
-        [Fact]
         public void AddBorder_IgnoresAttemptToAddingAlreadyExistingBorder()
         {
             string[] territoryCodes = new string[] { "CAN", "USA" };
