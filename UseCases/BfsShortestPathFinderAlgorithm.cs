@@ -29,12 +29,10 @@ namespace UseCases
         {
             int numberOfVerticesInGraph = adjacencyList.Length;
             bool[] visited = Enumerable.Repeat(false, numberOfVerticesInGraph).ToArray();
-            int[] distance = Enumerable.Repeat(int.MaxValue, numberOfVerticesInGraph).ToArray();
             List<int> predecessors = Enumerable.Repeat(-1, numberOfVerticesInGraph).ToList();
             Queue<int> visitedVerticesQueue = new Queue<int>();
 
             visited[source] = true;
-            distance[source] = 0;
             visitedVerticesQueue.Enqueue(source);
 
             while(visitedVerticesQueue.Any())
@@ -46,7 +44,6 @@ namespace UseCases
                     if(visited[vertexNeighbour] == false)
                     {
                         visited[vertexNeighbour] = true;
-                        distance[vertexNeighbour] = distance[currentVertex] + 1;
                         predecessors[vertexNeighbour] = currentVertex;
                         visitedVerticesQueue.Enqueue(vertexNeighbour);
 

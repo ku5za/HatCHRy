@@ -12,6 +12,7 @@ namespace Tests.UseCasesTests
         [Theory]
         [InlineData(1, 3, new int[] { 1, 2, 3 })]
         [InlineData(1, 6, new int[] { 1, 2, 4, 6})]
+        [InlineData(1, 9, new int[] { 1, 2, 4, 6, 7, 8, 9 })]
         public void GetShortestPathList_MockMapInput_ReturnsProperVisitedVerticesList(int source, int destination, int[] expectedOutput)
         {
             MockMapBuilderOutput mockShortestPathFinderInput = new MockMapBuilderOutput();
