@@ -12,7 +12,6 @@ namespace Tests.UseCasesTests
 {
     public class BfsShortestPathFinderTests
     {
-
         [Theory]
         [InlineData("USA", "BLZ", new string[] { "USA", "MEX", "BLZ" })]
         [InlineData("USA", "CAN", new string[] { "USA", "CAN" })]
