@@ -10,7 +10,7 @@ using UseCases.Interfaces;
 
 namespace Controllers.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("")]
     [ApiController]
     public class GetPathFromUsaToController : ControllerBase
     {
@@ -20,14 +20,14 @@ namespace Controllers.Controllers
             pathFinderOutput = shortestPathFinderOutput;
         }
 
-        // GET api/<GetPathFromUsaTo>/
+        // GET 
         [HttpGet]
-        public int Get()
+        public decimal Get()
         {
-            return 10;
+            return (decimal)(new Random().NextDouble());
         }
 
-        // GET api/<GetPathFromUsaTo>/BLZ
+        // GET /BLZ
         [HttpGet("{code}")]
         public IActionResult Get(string code)
         {
