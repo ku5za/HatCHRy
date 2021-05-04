@@ -19,11 +19,22 @@ namespace Controllers.Controllers
             pathFinderOutput = shortestPathFinderOutput;
         }
 
+        // GET api/<GetPathFromUsaTo>/
+        [HttpGet]
+        public int Get()
+        {
+            return 10;
+        }
+
         // GET api/<GetPathFromUsaTo>/BLZ
         [HttpGet("{code}")]
-        public string[] Get(string code)
+        public object Get(string code)
         {
-            return pathFinderOutput.GetVisitedVerticesList("USA", code).ToArray();
+            return new
+            {
+                destination = code,
+                list = pathFinderOutput.GetVisitedVerticesList("USA", code).ToArray()
+            };
         }
     }
 }
