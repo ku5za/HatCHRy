@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Tests.UseCasesTests.Mocks;
 using UseCases;
+using UseCases.Exceptions;
 using UseCases.Interfaces;
 using Xunit;
 
@@ -18,8 +19,8 @@ namespace Tests.UseCasesTests
         [InlineData("USA", "SLV", new string[] { "USA", "MEX", "GTM", "SLV" })]
         public void GetVisitedVerticesList_ToNearCountries_ReturnsListOfVisitedCountries(string source, string destination, string[] expectedOutput)
         {
-            MockMapBuilderOutput mockInput = new MockMapBuilderOutput();
-            BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mockInput);
+            IMapBuilderOutput mapBuilderOutput = new MockMapBuilderOutput();
+            BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mapBuilderOutput);
             string[] shortestPath = pathFinder.GetVisitedVerticesList(source, destination).ToArray();
             Assert.Equal(expectedOutput, shortestPath);
         }
@@ -28,10 +29,20 @@ namespace Tests.UseCasesTests
         [InlineData("USA", "HND", new string[] { "USA", "MEX", "GTM", "HND" })]
         public void GetVisitedVerticesList_ToHonduras_FindsShortestPath(string source, string destination, string[] expectedOutput)
         {
-            MockMapBuilderOutput mockInput = new MockMapBuilderOutput();
-            BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mockInput);
+            IMapBuilderOutput mapBuilderOutput = new MockMapBuilderOutput();
+            BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mapBuilderOutput);
             string[] shortestPath = pathFinder.GetVisitedVerticesList(source, destination).ToArray();
             Assert.Equal(expectedOutput, shortestPath);
+        }
+
+        [Theory]
+        [InlineData("USA", "NOTSUPPORTED")]
+        [InlineData("NOTSUPPORTED", "USA")]
+        public void GetVisitedVerticesList_NotSuportedCode_ThrowsNotSupportedCountryCodeException(string source, string destination)
+        {
+            IMapBuilderOutput mapBuilderOutput = new MockMapBuilderOutput();
+            BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mapBuilderOutput);
+            Assert.Throws<NotSupportedCountryCodeException>(() => pathFinder.GetVisitedVerticesList(source, destination));
         }
     }
 }
