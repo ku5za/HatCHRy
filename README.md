@@ -1,11 +1,11 @@
-# HatCHRy Interview Project
+# HatCHRy Interviev Project
 ## Representation of the map
 ### Map as a graph
 At this stage, I had to decide how I want to represent the map.
 A map can be handly represented as an undirected graph, where we treat territories as vertices and a common border as an edge between those vertices.
 
 ### Different ways of representation for graphs
-We can describe an undirected graph as an adjacency matrix or adjacency list. From those two in this context, an adjacency list would suit better. The adjacency matrix occupies space for every potential connection between two vertices. With the map, it would end up with many empty elements for borders that are not connected.
+We can describe an undirected graph as an adjacency matrix or adjacency list. From those two in this context, an adjacency list suits better. The adjacency matrix occupies space for every potential connection between two vertices. With the map, it would end up with many empty elements for borders that are not connected.
 
 ### Different ways to implement adjacency lists
 There are different ways to implement an adjacency list, depending on how we name vertices. For that purpose, we can use the Dictionary data structure if we want to use non-numerical values (like codes of countries), but those codes have to be unique. Another approach is to implement it with an array-like structure with vertices named as array indexes and then map those indexes to their code values.
@@ -15,4 +15,8 @@ To ensure our vertices are easy to manage and search for, we have to give them u
 
 ## Finding path in the graph
 ### Proper algorithm choose
-There are many ways to determine paths in graphs, depending on data about particular edges like weight or distance between vertices or requirements about the found path. In our case, there is no such data about edges, so I assume we can treat them as equally good. Provided outputs show that we are looking for the shortest available path solution. For this purpose, we can use a modified version of the breadth-first search(BFS) algorithm with an array of visited vertices' predecessors. That will allow us to recreate the desired path.
+There are many ways to determine paths in graphs, depending on particular edge data like weight or distance or requirements for the desired path. In our case, there is no such data about edges, so I assume we can treat them as equally good. Provided outputs show that we are looking for the shortest available path solution. For this purpose, we can use a modified version of the breadth-first search(BFS) algorithm with an array of visited vertices' predecessors. That will allow us to recreate the desired path.
+
+## Web API
+### Not supported country code
+There is no information in project requirements on how the system should handle a situation when someone passes the not supported country code.  In my opinion, it's a good practice to inform our user that something went wrong and I decided to do so by returning a message that the user passed not supported country code.
