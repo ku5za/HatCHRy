@@ -2,7 +2,7 @@
 
 ## Usage
 Link to live Web API's endpoint: https://jkuszewskihatchry.azurewebsites.net/  
-Use any of the ["CAN", "USA", "MEX", "BLZ", "GTM", "SLV", "HND", "NIC", "CRI", "PAN"] codes to get a response with the shortest avaliable path from the USA to the country with the passed code.
+Use any of the ["CAN", "USA", "MEX", "BLZ", "GTM", "SLV", "HND", "NIC", "CRI", "PAN"] codes at the end of the link above to get a response with the shortest avaliable path from the USA to the country with the passed code.
 
 ## Representation of the map
 ### Map as a graph
