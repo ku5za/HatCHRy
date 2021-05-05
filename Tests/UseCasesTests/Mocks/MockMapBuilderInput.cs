@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UseCases;
@@ -8,13 +9,13 @@ namespace Tests.UseCasesTests.Mocks
 {
     public class MockMapBuilderInput : IMapBuilderInput
     {
-        public List<string>[] GetBordersList()
+        public List<Border> GetBordersList()
         {
-            return new List<string>[]
+            return new List<Border>
             {
-                new List<string> { "CAN", "USA" },
-                new List<string> { "USA", "MEX" },
-                new List<string> { "MEX", "BLZ" }
+                new Border ( "CAN", "USA" ),
+                new Border ( "USA", "MEX" ),
+                new Border ( "MEX", "BLZ" )
             };
         }
 

@@ -19,8 +19,8 @@ namespace Tests.ModelsTests
                 "MEX"
             };
             Map map = new Map(territoryCodes);
-            map.AddBorder("CAN", "USA");
-            map.AddBorder("USA", "MEX");
+            map.AddBorder(new Border("CAN", "USA"));
+            map.AddBorder(new Border("USA", "MEX"));
 
             Assert.Equal<List<int>>(
                     new List<int>[3] {
@@ -37,8 +37,8 @@ namespace Tests.ModelsTests
         {
             string[] territoryCodes = new string[] { "CAN", "USA" };
             Map map = new Map(territoryCodes);
-            map.AddBorder("CAN", "USA");
-            map.AddBorder("CAN", "USA");
+            map.AddBorder(new Border("CAN", "USA"));
+            map.AddBorder(new Border("CAN", "USA"));
 
             Assert.Equal(
                     new List<int>[] { new List<int> { 1 }, new List<int> { 0 } },

@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 using UseCases;
+using UseCases.Interfaces;
 using Xunit;
 
 namespace Tests.UseCasesTests
@@ -11,7 +14,7 @@ namespace Tests.UseCasesTests
         [Fact]
         public void GetVerticesCodes_ReturnsProperCodesForNorthAmericaCountries()
         {
-            NorthAmericaMapBuilderInput mapBuilderInput = new NorthAmericaMapBuilderInput();
+            IMapBuilderInput mapBuilderInput = new NorthAmericaMapBuilderInput();
             Assert.Equal(
                     new string[]
                     {
@@ -33,23 +36,26 @@ namespace Tests.UseCasesTests
         [Fact]
         public void GetBordersList_ReturnsProperBordersListWithCountriesCodes()
         {
-            NorthAmericaMapBuilderInput mapBuilderInput = new NorthAmericaMapBuilderInput();
-            Assert.Equal(
-                    new List<string>[]
+            IMapBuilderInput mapBuilderInput = new NorthAmericaMapBuilderInput();
+            List<Border> expectedBorders = new List<Border>
                     {
-                        new List<string> {"CAN", "USA"},
-                        new List<string> {"USA", "MEX"},
-                        new List<string> {"MEX", "GTM"},
-                        new List<string> {"MEX", "BLZ"},
-                        new List<string> {"BLZ", "GTM"},
-                        new List<string> {"GTM", "SLV"},
-                        new List<string> {"GTM", "HND"},
-                        new List<string> {"SLV", "HND"},
-                        new List<string> {"HND", "NIC"},
-                        new List<string> {"NIC", "CRI"},
-                        new List<string> {"CRI", "PAN"}
-                    },
-                    mapBuilderInput.GetBordersList()
+                        new Border ("CAN", "USA"),
+                        new Border ("USA", "MEX"),
+                        new Border ("MEX", "GTM"),
+                        new Border ("MEX", "BLZ"),
+                        new Border ("BLZ", "GTM"),
+                        new Border ("GTM", "SLV"),
+                        new Border ("GTM", "HND"),
+                        new Border ("SLV", "HND"),
+                        new Border ("HND", "NIC"),
+                        new Border ("NIC", "CRI"),
+                        new Border ("CRI", "PAN")
+                    };
+            List<Border> actualBorders = mapBuilderInput.GetBordersList();
+            string expoectedBordersString = JsonSerializer.Serialize(expectedBorders);
+            string actualBordersString = JsonSerializer.Serialize(actualBorders);
+            Assert.Equal(expoectedBordersString,
+                    actualBordersString
                 );
         }
     }

@@ -13,10 +13,10 @@ namespace UseCases
         public MapBuilder(IMapBuilderInput mapBuilderInput)
         {
             itsMap = new Map(mapBuilderInput.GetVerticesCodes());
-            List<string>[] bordersList = mapBuilderInput.GetBordersList();
-            foreach(var borderPair in bordersList)
+            List<Border> bordersList = mapBuilderInput.GetBordersList();
+            foreach(Border border in bordersList)
             {
-                itsMap.AddBorder(borderPair[0], borderPair[1]);
+                itsMap.AddBorder(border);
             }
         }
 

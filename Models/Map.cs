@@ -20,10 +20,10 @@ namespace Models
         public List<int>[] GetAdjacencyList() => graphRepresentation.GetAdjacencyList();
         public Dictionary<string, int> GetTerritoriesDictionary() => territoriesDictionary;
 
-        public void AddBorder(string firstTerritory, string secondTerritory)
+        public void AddBorder(Border border)
         {
-            int firstTerritoryIndex = territoriesDictionary[firstTerritory];
-            int secondTerritoryIndex = territoriesDictionary[secondTerritory];
+            int firstTerritoryIndex = territoriesDictionary[border.FirstTerritory];
+            int secondTerritoryIndex = territoriesDictionary[border.SecondTerritory];
             List<int> firstTerritoryNeighbours =
                 graphRepresentation.GetAdjacencyList()[firstTerritoryIndex];
 
