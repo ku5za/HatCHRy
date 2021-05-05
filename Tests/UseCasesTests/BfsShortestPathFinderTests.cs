@@ -21,7 +21,7 @@ namespace Tests.UseCasesTests
         {
             IMapBuilderOutput mapBuilderOutput = new MockMapBuilderOutput();
             BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mapBuilderOutput);
-            string[] shortestPath = pathFinder.GetVisitedVerticesList(source, destination).ToArray();
+            string[] shortestPath = pathFinder.GetVisitedTerritoriesCodesList(source, destination).ToArray();
             Assert.Equal(expectedOutput, shortestPath);
         }
 
@@ -31,7 +31,7 @@ namespace Tests.UseCasesTests
         {
             IMapBuilderOutput mapBuilderOutput = new MockMapBuilderOutput();
             BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mapBuilderOutput);
-            string[] shortestPath = pathFinder.GetVisitedVerticesList(source, destination).ToArray();
+            string[] shortestPath = pathFinder.GetVisitedTerritoriesCodesList(source, destination).ToArray();
             Assert.Equal(expectedOutput, shortestPath);
         }
 
@@ -42,7 +42,7 @@ namespace Tests.UseCasesTests
         {
             IMapBuilderOutput mapBuilderOutput = new MockMapBuilderOutput();
             BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mapBuilderOutput);
-            Assert.Throws<NotSupportedCountryCodeException>(() => pathFinder.GetVisitedVerticesList(source, destination));
+            Assert.Throws<NotSupportedCountryCodeException>(() => pathFinder.GetVisitedTerritoriesCodesList(source, destination));
         }
     }
 }

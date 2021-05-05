@@ -30,7 +30,7 @@ namespace Controllers
             services.AddControllers();
             services.AddScoped<IMapBuilderInput, NorthAmericaMapBuilderInput>();
             services.AddScoped<IMapBuilderOutput, MapBuilder>();
-            services.AddScoped<IShortestPathFinderOutput, BfsShortestPathFinder>();
+            services.AddScoped<IPathFinderOutput, BfsShortestPathFinder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

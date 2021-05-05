@@ -8,17 +8,17 @@ using UseCases.Interfaces;
 
 namespace UseCases
 {
-    public abstract class ShortestPathFinder : IShortestPathFinderOutput
+    public abstract class PathFinder : IPathFinderOutput
     {
         private readonly Map map;
-        public ShortestPathFinder(IMapBuilderOutput mapBuilderOutput)
+        public PathFinder(IMapBuilderOutput mapBuilderOutput)
         {
             map = mapBuilderOutput.GetMap();
         }
 
         protected abstract ShortestPathFinderAlgorithm GetShortestPathFinderAlgorithmClass(List<int>[] adjacencyList);
 
-        public List<string> GetVisitedVerticesList(string source, string destination)
+        public List<string> GetVisitedTerritoriesCodesList(string source, string destination)
         {
             Dictionary<string, int> territoriesCodesDictionary = map.GetTerritoriesDictionary();
             ThrowExceptionIfCodeIsNotInTerritoriesDictionary(source);

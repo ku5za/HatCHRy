@@ -5,7 +5,7 @@ using UseCases.Interfaces;
 
 namespace UseCases
 {
-    public class BfsShortestPathFinder : ShortestPathFinder
+    public class BfsShortestPathFinder : PathFinder
     {
         public BfsShortestPathFinder(IMapBuilderOutput mapBuilderOutput) : base(mapBuilderOutput)
         {

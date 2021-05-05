@@ -14,8 +14,8 @@ namespace Controllers.Controllers
     [ApiController]
     public class GetPathFromUsaToController : ControllerBase
     {
-        private readonly IShortestPathFinderOutput pathFinderOutput;
-        public GetPathFromUsaToController(IShortestPathFinderOutput shortestPathFinderOutput)
+        private readonly IPathFinderOutput pathFinderOutput;
+        public GetPathFromUsaToController(IPathFinderOutput shortestPathFinderOutput)
         {
             pathFinderOutput = shortestPathFinderOutput;
         }
@@ -36,12 +36,12 @@ namespace Controllers.Controllers
 
             try
             {
-                visitedCountriesList = pathFinderOutput.GetVisitedVerticesList("USA", code);
+                visitedCountriesList = pathFinderOutput.GetVisitedTerritoriesCodesList("USA", code);
                 result = new JsonResult(
                     new
                     {
                         destination = code,
-                        list = pathFinderOutput.GetVisitedVerticesList("USA", code).ToArray()
+                        list = pathFinderOutput.GetVisitedTerritoriesCodesList("USA", code).ToArray()
                     }
                     );
             }
