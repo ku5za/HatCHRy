@@ -27,7 +27,8 @@ namespace Tests.UseCasesTests
 
         [Theory]
         [InlineData("USA", "HND", new string[] { "USA", "MEX", "GTM", "HND" })]
-        public void GetVisitedVerticesList_ToHonduras_FindsShortestPath(string source, string destination, string[] expectedOutput)
+        [InlineData("USA", "PAN", new string[] { "USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN" })]
+        public void GetVisitedVerticesList_AlwaysFindsShortestPath(string source, string destination, string[] expectedOutput)
         {
             IMapBuilderOutput mapBuilderOutput = new MockMapBuilderOutput();
             BfsShortestPathFinder pathFinder = new BfsShortestPathFinder(mapBuilderOutput);

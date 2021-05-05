@@ -16,8 +16,6 @@ namespace UseCases
             map = mapBuilderOutput.GetMap();
         }
 
-        protected abstract PathFinderAlgorithm GetShortestPathFinderAlgorithmClass();
-
         public List<string> GetVisitedTerritoriesCodesList(string source, string destination)
         {
             Dictionary<string, int> territoriesCodesDictionary = map.GetTerritoriesDictionary();
@@ -44,10 +42,6 @@ namespace UseCases
             }
         }
 
-        protected List<int> GetVisitedVerticesList(int source, int destination)
-        {
-            PathFinderAlgorithm algorithm = GetShortestPathFinderAlgorithmClass();
-            return algorithm.GetShortestPathList(source, destination);
-        }
+        protected abstract List<int> GetVisitedVerticesList(int source, int destination);
     }
 }
