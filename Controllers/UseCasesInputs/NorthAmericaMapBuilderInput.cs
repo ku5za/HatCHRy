@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UseCases.Interfaces;
 
-namespace UseCases
+namespace Controllers.UseCasesInputs
 {
     public class NorthAmericaMapBuilderInput : IMapBuilderInput
     {

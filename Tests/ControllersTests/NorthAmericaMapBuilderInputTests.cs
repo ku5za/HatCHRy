@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Controllers.UseCasesInputs;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ using UseCases;
 using UseCases.Interfaces;
 using Xunit;
 
-namespace Tests.UseCasesTests
+namespace Tests.ControllersTests
 {
     public class NorthAmericaMapBuilderInputTests
     {
