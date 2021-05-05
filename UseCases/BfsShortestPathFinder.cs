@@ -11,8 +11,9 @@ namespace UseCases
         {
         }
 
-        protected override PathFinderAlgorithm GetShortestPathFinderAlgorithmClass(List<int>[] adjacencyList)
+        protected override PathFinderAlgorithm GetShortestPathFinderAlgorithmClass()
         {
+            List<int>[] adjacencyList = map.GetAdjacencyList();
             return new BfsShortestPathFinderAlgorithm(adjacencyList);
         }
     }
