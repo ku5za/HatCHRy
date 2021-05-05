@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Controllers.UseCasesInputs;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UseCases;
 using UseCases.Exceptions;
 using UseCases.Interfaces;
 
@@ -15,9 +17,11 @@ namespace Controllers.Controllers
     public class GetPathFromUsaToController : ControllerBase
     {
         private readonly IPathFinderOutput pathFinderOutput;
-        public GetPathFromUsaToController(IPathFinderOutput shortestPathFinderOutput)
+        public GetPathFromUsaToController()
         {
-            pathFinderOutput = shortestPathFinderOutput;
+            IMapBuilderInput mapBuilderInput = new NorthAmericaMapBuilderInput();
+            IMapBuilderOutput mapBuilderOutput = new MapBuilder(mapBuilderInput);
+            pathFinderOutput = new BfsShortestPathFinder(mapBuilderOutput);
         }
 
         // GET 
