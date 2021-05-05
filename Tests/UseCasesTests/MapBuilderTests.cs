@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tests.UseCasesTests.Mocks;
 using UseCases;
+using UseCases.Interfaces;
 using Xunit;
 
 namespace Tests.UseCasesTests
@@ -13,8 +14,8 @@ namespace Tests.UseCasesTests
         [Fact]
         public void GetAdjacencyList_SimpleMockMapBuilderInput_ReturnsMapWithProperAdjacencyList()
         {
-            MockMapBuilderInput mockMapBuilder = new MockMapBuilderInput();
-            MapBuilder mapBuilder = new MapBuilder(mockMapBuilder);
+            IMapBuilderInput mockMapBuilder = new MockMapBuilderInput();
+            IMapBuilderOutput mapBuilder = new MapBuilder(mockMapBuilder);
             Map map = mapBuilder.GetMap();
             Assert.Equal(
                     map.GetAdjacencyList(),
