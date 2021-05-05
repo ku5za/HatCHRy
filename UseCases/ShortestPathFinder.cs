@@ -21,29 +21,34 @@ namespace UseCases
         public List<string> GetVisitedVerticesList(string source, string destination)
         {
             Dictionary<string, int> territoriesCodesDictionary = map.GetTerritoriesDictionary();
-            ThrowExceptionIfCodeIsNotInTerritoriesDictionary(territoriesCodesDictionary, source);
-            ThrowExceptionIfCodeIsNotInTerritoriesDictionary(territoriesCodesDictionary, destination);
+            ThrowExceptionIfCodeIsNotInTerritoriesDictionary(source);
+            ThrowExceptionIfCodeIsNotInTerritoriesDictionary(destination);
 
-            List<int> visitedVerticesIndexesList =
-                GetVisitedVerticesIndexesList(territoriesCodesDictionary[source], territoriesCodesDictionary[destination]);
+            List<int> visitedVerticesIndexesList = 
+                GetVisitedVerticesList(
+                    territoriesCodesDictionary[source],
+                    territoriesCodesDictionary[destination]
+                );
             string[] territoriesCodes = territoriesCodesDictionary.Keys.ToArray();
-            return visitedVerticesIndexesList.Select(vertexId => territoriesCodes[vertexId]).ToList();
+            return visitedVerticesIndexesList
+                .Select(vertexId => territoriesCodes[vertexId])
+                .ToList();
         }
 
-        private void ThrowExceptionIfCodeIsNotInTerritoriesDictionary(Dictionary<string, int> territoriesDictionary, string code)
+        private void ThrowExceptionIfCodeIsNotInTerritoriesDictionary(string code)
         {
+            Dictionary<string, int> territoriesDictionary = map.GetTerritoriesDictionary();
             if(!territoriesDictionary.ContainsKey(code))
             {
                 throw new NotSupportedCountryCodeException();
             }
         }
 
-        protected List<int> GetVisitedVerticesIndexesList(int source, int destination)
+        protected List<int> GetVisitedVerticesList(int source, int destination)
         {
             List<int>[] adjacencyList = map.GetAdjacencyList();
-            ShortestPathFinderAlgorithm pathFinder = GetShortestPathFinderAlgorithmClass(adjacencyList);
-            return pathFinder.GetShortestPathList(
-                source, destination);
+            ShortestPathFinderAlgorithm algorithm = GetShortestPathFinderAlgorithmClass(adjacencyList);
+            return algorithm.GetShortestPathList(source, destination);
         }
     }
 }
