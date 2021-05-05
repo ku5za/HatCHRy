@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UseCases
 {
-    public class BfsShortestPathFinderAlgorithm : ShortestPathFinderAlgorithm
+    public class BfsShortestPathFinderAlgorithm : PathFinderAlgorithm
     {
         public BfsShortestPathFinderAlgorithm(List<int>[] adjacencyList) : base(adjacencyList)
         {
@@ -14,15 +14,21 @@ namespace UseCases
         public override List<int> GetShortestPathList(int source, int destination)
         {
             List<int> predecessorsList = BFS(source, destination);
+            Stack<int> pathStack = GetPredecessorsStack(predecessorsList, destination);
+            return pathStack.ToList();
+        }
+
+        private Stack<int> GetPredecessorsStack(List<int> predecessorsList, int destination)
+        {
             Stack<int> pathStack = new Stack<int>();
             pathStack.Push(destination);
             int current = destination;
-            while(predecessorsList[current] != -1)
+            while (predecessorsList[current] != -1)
             {
                 pathStack.Push(predecessorsList[current]);
                 current = predecessorsList[current];
             }
-            return pathStack.ToList();
+            return pathStack;
         }
 
         private List<int> BFS(int source, int destination)
