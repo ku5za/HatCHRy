@@ -11,12 +11,13 @@ namespace UseCases
     public abstract class PathFinder : IPathFinderOutput
     {
         private readonly Map map;
+        private readonly PathFinderAlgorithm algorithm;
         public PathFinder(IMapBuilderOutput mapBuilderOutput)
         {
             map = mapBuilderOutput.GetMap();
         }
 
-        protected abstract ShortestPathFinderAlgorithm GetShortestPathFinderAlgorithmClass(List<int>[] adjacencyList);
+        protected abstract PathFinderAlgorithm GetShortestPathFinderAlgorithmClass(List<int>[] adjacencyList);
 
         public List<string> GetVisitedTerritoriesCodesList(string source, string destination)
         {
@@ -47,7 +48,7 @@ namespace UseCases
         protected List<int> GetVisitedVerticesList(int source, int destination)
         {
             List<int>[] adjacencyList = map.GetAdjacencyList();
-            ShortestPathFinderAlgorithm algorithm = GetShortestPathFinderAlgorithmClass(adjacencyList);
+            PathFinderAlgorithm algorithm = GetShortestPathFinderAlgorithmClass(adjacencyList);
             return algorithm.GetShortestPathList(source, destination);
         }
     }

@@ -2,10 +2,10 @@
 
 namespace UseCases
 {
-    public abstract class ShortestPathFinderAlgorithm
+    public abstract class PathFinderAlgorithm
     {
         protected readonly List<int>[] adjacencyList;
-        public ShortestPathFinderAlgorithm(List<int>[] adjacencyList)
+        public PathFinderAlgorithm(List<int>[] adjacencyList)
         {
             this.adjacencyList = adjacencyList;
         }
